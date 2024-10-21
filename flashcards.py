@@ -1,4 +1,5 @@
 import json
+import time
 
 class Flashcards:
 	
@@ -23,4 +24,17 @@ class Flashcards:
 
 	def chapter_terms(self, chapter):
 		chapter_terms = ''
+		
+	def all_terms_timed(self):
+		try:
+			seconds = int(input("How many seconds between each term?: "))
+			if seconds < 0:
+				time.sleep(seconds)
+		except Exception as e:
+			print(f"Invalid input: {e}")
+			return
+		for term in self.flashcards:
+			definition = self.flashcards[term]
+			print(f"\033[1;34m{term}\033[0m \n{definition}\n")
+			time.sleep(seconds)
 		
