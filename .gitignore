@@ -148,6 +148,9 @@ dmypy.json
 # JSON files
 *.json
 
+# DAT files
+*.dat
+
 # Pyre type checker
 .pyre/
 
