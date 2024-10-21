@@ -49,6 +49,7 @@ class Flashcards:
 				option = input("Please type Y/N: ")
 			if(option == 'n'):
 				return
+			print("\n")
 		except Exception as e:
 			print(f"Invalid input: {e}")
 			return
@@ -56,5 +57,29 @@ class Flashcards:
 		for term in self.flashcards:
 			definition = self.flashcards[term]
 			print(f"\033[1;34m{term}\033[0m \n{definition}\n")
+			time.sleep(seconds)
+			
+	def chapter_terms_timed(self, chapter):
+		try:
+			seconds = float(input("How many seconds between each term?: "))
+			print("\n")
+			if seconds < 0:
+				time.sleep(seconds)
+			total_time = len(self.flashcards[chapter]) * seconds
+			print(f"With {len(self.flashcards[chapter])} terms at {1/seconds:.2f} terms/sec,") 
+			print(f"it will take {total_time} seconds ({(total_time / 60):.2f} minutes) to finish.")
+			option = input("Continue? (Y/N): ").lower()
+			while option != 'y' and option != 'n':
+				option = input("Please type Y/N: ")
+			if(option == 'n'):
+				return
+			print("\n")
+		except Exception as e:
+			print(f"Invalid input: {e}")
+			return
+		time.sleep(0.75)
+		for term in self.flashcards[chapter]:
+			definition = self.flashcards[chapter][term]
+			print(f'\033[1;34m{term}\033[0m \n{definition}\n\n')
 			time.sleep(seconds)
 		

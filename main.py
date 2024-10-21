@@ -12,8 +12,9 @@ while not endProgram:
 	print("2. List all terms")
 	print("3. List all terms (timed)")
 	print("4. List terms by chapter")
-	print("5. Help")
-	print("6. Quit program")
+	print("5. List terms by chapter (timed)")
+	print("6. Help")
+	print("7. Quit program")
 	choice = input("\nEnter menu choice: ")
 	
 	if choice == '1':
@@ -26,11 +27,14 @@ while not endProgram:
 		chapter = input("Select chapter to list: ")
 		print(flashcards.chapter_terms(chapter))
 	elif choice == '5':
+		chapter = input("Select chapter to list: ")
+		flashcards.chapter_terms_timed(chapter)
+	elif choice == '6':
 		f = open('help.txt', 'r')
 		information = f.read()
 		print(f"\n{information}")
 		f.close()
-	elif choice == '6' or 'quit':
+	elif choice == '7' or choice == 'quit':
 		endProgram = True
 	else:
 		print("Invalid input.")
