@@ -25,7 +25,10 @@ while not endProgram:
 	elif choice == '4':
 		print("Select chapter to list: ")
 	elif choice == '5':
-		print("ok")
+		f = open('help.txt', 'r')
+		information = f.read()
+		print(f"\n{information}")
+		f.close()
 	elif choice == '6' or 'quit':
 		endProgram = True
 	else:

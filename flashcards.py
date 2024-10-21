@@ -12,8 +12,10 @@ class Flashcards:
 				print("File read successfully.")
 		except FileNotFoundError:
 			print("File not found.")
+			return 0
 		except Exception as e:
 			print(f"Unexpected error: {e}")
+			return 0
 		
 	def all_terms(self):
 		all_cards_ = ''
@@ -28,11 +30,13 @@ class Flashcards:
 	def all_terms_timed(self):
 		try:
 			seconds = int(input("How many seconds between each term?: "))
+			print("\n")
 			if seconds < 0:
 				time.sleep(seconds)
 		except Exception as e:
 			print(f"Invalid input: {e}")
 			return
+		time.sleep(1)
 		for term in self.flashcards:
 			definition = self.flashcards[term]
 			print(f"\033[1;34m{term}\033[0m \n{definition}\n")
