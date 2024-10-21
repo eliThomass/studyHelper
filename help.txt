@@ -1,1 +1,27 @@
-Help menu
+======== HELP =========
+File format: JSON
+    Formatting: { term:definition, term:definition, etc. }
+    If the data file is not in this format, unexpected behavior will occur!
+    
+1: Flashcards
+     Use Q and E to cycle through cards. Use spacebar to flip cards.
+
+2: List all terms
+     Lists all terms in the data file
+	
+3: List all terms (timed)
+     Lists all terms in the data file, but adds a timer in between printing each term.
+     This helps with readability, rather than dumping all terms on screen at once.
+     When prompted, enter a positive integer.
+
+4: List terms by chapter
+     If JSON file is formatted with chapters, you can choose a chapter to print the terms of.
+     Formatting: { chapter : {term:definition, term:definition, etc.}, chapter : {etc.}}
+     If not in this formatting, you will not be able to list terms by chapter.
+     Be sure to use the EXACT chapter name which is in the data file when using the program.
+     Using a short name for the chapters such as '1', etc. is suggested.
+
+Additional
+     It is recommended to have your terminal be at least 100 characters in width.
+     This will reduce line wrapping.
+=======================

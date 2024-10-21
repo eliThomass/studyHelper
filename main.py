@@ -23,7 +23,8 @@ while not endProgram:
 	elif choice == '3':
 		flashcards.all_terms_timed()
 	elif choice == '4':
-		print("Select chapter to list: ")
+		chapter = input("Select chapter to list: ")
+		print(flashcards.chapter_terms(chapter))
 	elif choice == '5':
 		f = open('help.txt', 'r')
 		information = f.read()
