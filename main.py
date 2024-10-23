@@ -1,10 +1,13 @@
 import flashcards
 
 endProgram = False
+chapters = False
 
 print("Welcome to studyHelper!")
 filename = input("Enter JSON filename to read: ")
 flashcards = flashcards.Flashcards(filename)
+chapters = flashcards.test_for_chapters()
+print(chapters)
 
 
 while not endProgram:
@@ -20,7 +23,10 @@ while not endProgram:
 	if choice == '1':
 		print("Q and E cycles through cards, use spacebar to flip.")
 	elif choice == '2':
-		print(flashcards.all_terms())
+		if chapters:
+			print(flashcards.all_terms_c())
+		else:
+			print(flashcards.all_terms())
 	elif choice == '3':
 		flashcards.all_terms_timed()
 	elif choice == '4':

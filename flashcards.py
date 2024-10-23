@@ -15,11 +15,18 @@ class Flashcards:
 		except Exception as e:
 			print(f"Unexpected error: {e}")
 		
+	def all_terms_c(self):
+		all_cards_ = ''
+		print("\n")
+		for chapters, terms in self.flashcards.items():
+			for term, definition in terms.items():
+				all_cards_ += f'\033[1;34m{term}\033[0m \n{definition}\n\n'
+		return all_cards_
+		
 	def all_terms(self):
 		all_cards_ = ''
 		print("\n")
-		for term in self.flashcards:
-			definition = self.flashcards[term]
+		for term, definition in self.flashcards.items():
 			all_cards_ += f'\033[1;34m{term}\033[0m \n{definition}\n\n'
 		return all_cards_
 
@@ -82,4 +89,12 @@ class Flashcards:
 			definition = self.flashcards[chapter][term]
 			print(f'\033[1;34m{term}\033[0m \n{definition}\n\n')
 			time.sleep(seconds)
-		
+			
+	def test_for_chapters(self):
+		try:
+			for chapters, terms in self.flashcards.items():
+				for term, definition in terms.items():
+					break
+			return True
+		except:
+			return False
