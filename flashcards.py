@@ -42,6 +42,34 @@ class Flashcards:
 			print(f'Be sure to use the exact name which is in the data file.')
 		return chapter_terms
 		
+	def all_terms_timed_c(self):
+		try:
+			seconds = float(input("How many seconds between each term?: "))
+			print("\n")
+			if seconds < 0:
+				time.sleep(seconds)
+			count = 0
+			for chapters, terms in self.flashcards.items():
+				for term, definition in terms.items():
+					count += 1
+			total_time = count * seconds
+			print(f"With {count} terms at {1/seconds:.2f} terms/sec,") 
+			print(f"it will take {total_time} seconds ({(total_time / 60):.2f} minutes) to finish.")
+			option = input("Continue? (Y/N): ").lower()
+			while option != 'y' and option != 'n':
+				option = input("Please type Y/N: ")
+			if(option == 'n'):
+				return
+			print("\n")
+		except Exception as e:
+			print(f"Invalid input: {e}")
+			return
+		time.sleep(0.75)
+		for chapters, terms in self.flashcards.items():
+			for term, definition in terms.items():
+				print(f'\033[1;34m{term}\033[0m \n{definition}\n')
+				time.sleep(seconds)
+			
 	def all_terms_timed(self):
 		try:
 			seconds = float(input("How many seconds between each term?: "))

@@ -28,7 +28,10 @@ while not endProgram:
 		else:
 			print(flashcards.all_terms())
 	elif choice == '3':
-		flashcards.all_terms_timed()
+		if chapters:
+			flashcards.all_terms_timed_c()
+		else:
+			flashcards.all_terms_timed()
 	elif choice == '4':
 		chapter = input("Select chapter to list: ")
 		print(flashcards.chapter_terms(chapter))
