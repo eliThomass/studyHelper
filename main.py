@@ -33,11 +33,17 @@ while not endProgram:
 		else:
 			flashcards.all_terms_timed()
 	elif choice == '4':
-		chapter = input("Select chapter to list: ")
-		print(flashcards.chapter_terms(chapter))
+		if chapters is True:
+			chapter = input("Select chapter to list: ")
+			print(flashcards.chapter_terms(chapter))
+		else:
+			print("Data file does not contain chapters.")
 	elif choice == '5':
-		chapter = input("Select chapter to list: ")
-		flashcards.chapter_terms_timed(chapter)
+		if chapters is True:
+			chapter = input("Select chapter to list: ")
+			flashcards.chapter_terms_timed(chapter)
+		else:
+			print("Data file does not contain chapters.")
 	elif choice == '6':
 		f = open('help.txt', 'r')
 		information = f.read()
